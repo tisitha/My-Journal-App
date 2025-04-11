@@ -49,7 +49,7 @@ const Editor = () => {
             <Textarea id="noteArea" className="h-[70%]" value={note} onChange={(e) => { setNote(e.target.value) }} />
             <div className="flex gap-4 items-center mb-5">
                 <Button onClick={clearTextArea}>New note</Button>
-                <Button onClick={sendNoteData} disabled={isLoading} className="w-17">{isLoading ? <Loader2 children="animated-spin" /> : "Save"}</Button>
+                <Button onClick={sendNoteData} disabled={isLoading} className="w-17">{isLoading ? <Loader2 className="animated-spin" /> : "Save"}</Button>
             </div>
         </div>
     )
