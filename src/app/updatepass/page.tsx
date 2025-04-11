@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import React from 'react'
+import React, { Suspense } from 'react'
 import logo from '../../../public/logo.png'
 import Image from 'next/image';
 import PassResetPage from '@/components/PassResetPage'
@@ -14,7 +14,9 @@ const updatepass = () => {
                         <div>Reset Password</div>
                     </div></CardTitle>
                     <CardDescription className="mt-7 mb-3">Please enter your new password.</CardDescription>
-                    <PassResetPage type='forNewPass' />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <PassResetPage type='forNewPass' />
+                    </Suspense>
                 </CardHeader>
             </Card>
         </div>
