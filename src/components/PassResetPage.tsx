@@ -20,7 +20,6 @@ const PassResetPage = ({ type }: Props) => {
     const [isPending, startTransaction] = useTransition();
 
     const searchParams = useSearchParams();
-    const value = searchParams.get('code');
 
     const search = (formData: FormData) => {
         startTransaction(async () => {
@@ -37,6 +36,7 @@ const PassResetPage = ({ type }: Props) => {
 
     const update = (formData: FormData) => {
         startTransaction(async () => {
+            const value = searchParams.get('code');
             const { error } = await updatePassAction(formData, value || "");
             if (error) {
                 toast.error(error.message);
